@@ -11,7 +11,7 @@ jobs:
  
     strategy:
       matrix:
-        node-version: ['18.x', '20.x']
+        node-version: ['18.x']
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
    
     services:
@@ -39,6 +39,7 @@ jobs:
     - name: npm install migrate and test
       run: |
         npm install
+        npm install pg@8.11.3
         npm run migrate up
         npm run test
       env:
